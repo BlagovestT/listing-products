@@ -8,6 +8,7 @@
 
 .recommended-flex {
   display: flex;
+  flex-wrap: wrap;
   margin-left: 20rem;
 }
 
@@ -31,4 +32,10 @@
   border: 0.6px solid #ccc;
   border-radius: 5px;
   color: #323232;
+}
+
+@media (max-width: 1199.98px) {
+  .product-count {
+    margin-left: 0rem;
+  }
 }

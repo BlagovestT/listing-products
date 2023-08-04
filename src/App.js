@@ -11,8 +11,6 @@ import Footer from './Footer/Footer';
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(1);
 
   // ----------- Input Filter -----------
   const [query, setQuery] = useState('');
@@ -70,14 +68,14 @@ function App() {
     );
   }
 
-  const result = filteredData(products, selectedCategory, query).slice(
-    0,
-    page * 20
-  );
+  const result = filteredData(products, selectedCategory, query);
 
-  const handleLoadMoreClick = () => {
-    setPage((prevPage) => (prevPage + 1) * 10);
-  };
+  // const handleLoadMoreClick = () => {
+  //   setPage((prevPage) => (prevPage + 1) * 10);
+  // .slice(
+  //   0,
+  //   page * 20
+  // );};
 
   const totalCount = result.length;
 
@@ -86,7 +84,7 @@ function App() {
       <Sidebar handleChange={handleChange} />
       <Navigation query={query} handleInputChange={handleInputChange} />
       <Recommended handleClick={handleClick} totalCount={totalCount} />
-      <Products result={result} onLoadMoreClick={handleLoadMoreClick} />
+      <Products result={result} />
       <Footer />
     </>
   );
